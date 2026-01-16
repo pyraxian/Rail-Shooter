@@ -5,7 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float controlSpeed = 35f;
     [SerializeField] float xClampRange = 10f;
-    [SerializeField] float yClampRange = 10f;
+    [SerializeField] float posYClampRange = 17f;
+    [SerializeField] float negYClampRange = -6f;
     Vector2 movement;
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         float yOffset = movement.y * controlSpeed * Time.deltaTime;
         float rawYPos = transform.localPosition.y + yOffset;
-        float clampedYPos = Mathf.Clamp(rawYPos, -yClampRange, yClampRange);
+        float clampedYPos = Mathf.Clamp(rawYPos, negYClampRange, posYClampRange);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, 0f);
     }
