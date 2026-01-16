@@ -3,14 +3,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float controlSpeed = 10f;
+    [SerializeField] float controlSpeed = 35f;
     Vector2 movement;
 
     // Update is called once per frame
     void Update()
     {
         float xOffset = movement.x * controlSpeed * Time.deltaTime;
-        transform.localPosition = new Vector3(transform.localPosition.x + xOffset, 0f, 0f);
+        float yOffset = movement.y * controlSpeed * Time.deltaTime;
+        transform.localPosition = new Vector3(transform.localPosition.x + xOffset, 
+                                              transform.localPosition.y + yOffset,
+                                              0f);
     }
 
     public void OnMove(InputValue value)
