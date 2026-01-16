@@ -7,12 +7,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float xClampRange = 10f;
     [SerializeField] float posYClampRange = 17f;
     [SerializeField] float negYClampRange = -6f;
+
+    [SerializeField] float controlRollFactor = 20f;
     Vector2 movement;
 
     // Update is called once per frame
     void Update()
     {
         ProcessTranslation();
+        ProcessRotation();
     }
 
 
@@ -31,5 +34,12 @@ public class PlayerMovement : MonoBehaviour
         float clampedYPos = Mathf.Clamp(rawYPos, negYClampRange, posYClampRange);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, 0f);
+    }
+
+    private void ProcessRotation()
+    {
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, -controlRollFactor * movement.x); 
+        // Having one of these values be negative allows us to combine with a postive or negative x vector to give us positive or negative movement
+        transform.localRotation = targetRotation;
     }
 }
