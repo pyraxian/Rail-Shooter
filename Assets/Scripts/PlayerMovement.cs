@@ -3,12 +3,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    /* Movement variables */
     [SerializeField] float controlSpeed = 35f;
     [SerializeField] float xClampRange = 10f;
     [SerializeField] float posYClampRange = 17f;
     [SerializeField] float negYClampRange = -6f;
 
-    [SerializeField] float controlRollFactor = 20f;
+    /* Rotation variables */
+    [SerializeField] float controlRollFactor = 25f;
+    [SerializeField] float controlPitchFactor = 20f;
+    [SerializeField] float rotationSpeed = 10f;
     Vector2 movement;
 
     // Update is called once per frame
@@ -38,8 +42,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void ProcessRotation()
     {
-        Quaternion targetRotation = Quaternion.Euler(0f, 0f, -controlRollFactor * movement.x); 
+        float pitch = controlPitchFactor * movement.y;
+        float roll = controlRollFactor * movement.x;
+
+        Quaternion targetRotation = Quaternion.Euler(-pitch, 0f, -roll); 
         // Having one of these values be negative allows us to combine with a postive or negative x vector to give us positive or negative movement
-        transform.localRotation = targetRotation;
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 }
