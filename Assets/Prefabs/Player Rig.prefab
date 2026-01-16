@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204063675318325447}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.60745, z: -0, w: 0.79435796}
-  m_LocalPosition: {x: -232.80325, y: -49.71191, z: -249.10603}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000032183372, y: 0, z: -0.00005617101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -251,8 +251,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305732855887459816}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.60745, z: -0, w: 0.79435796}
-  m_LocalPosition: {x: -179.40707, y: 49.71191, z: 289.93835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729ef9d2eba492647b65b09fe5c8c6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  controlSpeed: 1
 --- !u!114 &1203320539100323445
 MonoBehaviour:
   m_ObjectHideFlags: 0
