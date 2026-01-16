@@ -778,8 +778,20 @@ PrefabInstance:
       value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8123554420247194587, guid: 6461fd26eb4383746bc0df14c86d419f, type: 3}
+      propertyPath: yClampRange
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123554420247194587, guid: 6461fd26eb4383746bc0df14c86d419f, type: 3}
       propertyPath: controlSpeed
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123554420247194587, guid: 6461fd26eb4383746bc0df14c86d419f, type: 3}
+      propertyPath: negYClampRange
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123554420247194587, guid: 6461fd26eb4383746bc0df14c86d419f, type: 3}
+      propertyPath: posYClampRange
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
