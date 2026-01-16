@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
         ProcessTranslation();
     }
 
+
+    public void OnMove(InputValue value)
+    {
+        movement = value.Get<Vector2>();
+    }
     private void ProcessTranslation()
     {
         float xOffset = movement.x * controlSpeed * Time.deltaTime;
@@ -20,10 +25,5 @@ public class PlayerMovement : MonoBehaviour
         transform.localPosition = new Vector3(transform.localPosition.x + xOffset,
                                               transform.localPosition.y + yOffset,
                                               0f);
-    }
-
-    public void OnMove(InputValue value)
-    {
-        movement = value.Get<Vector2>();
     }
 }
