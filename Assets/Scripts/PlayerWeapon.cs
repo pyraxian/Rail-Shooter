@@ -1,16 +1,24 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] GameObject laser;
+    bool isFiring = false;
+
+    private void Update()
     {
-        
+        ProcessFiring();
+    }
+    public void OnFire(InputValue value)
+    {
+        isFiring = value.isPressed;
     }
 
-    // Update is called once per frame
-    void Update()
+    void ProcessFiring()
     {
-        
+        var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+
+        emissionModule.enabled = isFiring;
     }
 }
